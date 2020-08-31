@@ -67,12 +67,12 @@ func UnblindGT(gt *bn256.GT, rInv *big.Int) []byte {
 	return gt.Marshal()
 }
 
-func GenUpdateToken(w string, wPrime string) *big.Int {
+func GenUpdateToken(w string, wPrime string, msk string) *big.Int {
 	token := new(big.Int)
 	temp := new(big.Int)
 
-	kw := GenKw(w, "msk")
-	kwPrime := GenKw(wPrime, "msk")
+	kw := GenKw(w, msk)
+	kwPrime := GenKw(wPrime, msk)
 
 	token.SetBytes(kwPrime)
 	temp.SetBytes(kw)
